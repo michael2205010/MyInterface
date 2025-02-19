@@ -1,0 +1,39 @@
+stages:
+  - build
+  - deploy
+
+variables:
+  IMAGE: $AZURE_CONTAINER_REGISTRY_URL$CI_REGISTRY_IMAGE/$CI_BUILD_REF_NAME:$CI_PIPELINE_ID
+
+before_script:
+  - echo $AZURE_CONTAINER_REGISTRY_KEY | docker login $AZURE_CONTAINER_REGISTRY_URL -u $AZURE_CONTAINER_REGISTRY_USER --password-stdin
+
+build_in_ban:
+  stage: build
+  image:
+    name: docker:latest
+    pull_policy: [ if-not-present, always ]
+    entrypoint: [ "" ]
+  script:
+    - docker build -t $IMAGE .
+    - docker push $IMAGE
+  only:
+    - mainXXXX
+  tags:
+    - tpass-developer-runner
+  when: on_success
+
+deploy_in_ban:
+  stage: deploy
+  image:
+    name: docker:latest
+    pull_policy: [ if-not-present, always ]
+    entrypoint: [ "" ]
+  script:
+    - docker compose -f docker-compose.yml pull
+    - docker compose -f docker-compose.yml up -d
+  only:
+    - mainXXXX
+  tags:
+    - tpass-developer-runner
+  when: on_success

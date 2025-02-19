@@ -1,0 +1,242 @@
+@import url("rwd.css");
+
+@import "tailwindcss";
+/* https://github.com/saadeghi/daisyui/tree/v5/packages/daisyui/src/components */
+@plugin "daisyui" {
+  themes:
+    light --winter,
+    dark --prefersdark;
+  include: alert, badge, breadcrumbs, button, carousel, card, checkbox,
+    collapse, divider, drawer, footer, input, label, list, menu, modal, navbar,
+    radio, select, skeleton, tab, table, textarea, toggle, validator;
+  logs: true;
+}
+/* https://v5.daisyui.com/docs/themes/ */
+@plugin "daisyui/theme" {
+  name: "winter";
+  logs: false;
+  default: false;
+  prefersdark: false;
+  color-scheme: light;
+
+  --color-base-content: "#000";
+  --color-primary: "#16A34A";
+  --color-primary-content: "#fff";
+  --color-accent: "#2C5779";
+  --color-accent-content: oklch(98% 0.01 160);
+}
+
+@plugin '@egoist/tailwindcss-icons' {
+}
+@config "../../../tailwind.config.js";
+
+@theme {
+  --tw-border-style: solid;
+}
+
+:root {
+  --tab-border: 4px;
+}
+
+@layer base {
+  .mdi {
+    @apply text-primary aspect-square;
+  }
+  .input,
+  .select {
+    @apply border-2 border-gray-200;
+    &:focus {
+      @apply border-primary outline-none;
+    }
+  }
+}
+
+.badge-primary {
+  @apply bg-green-800 text-white;
+}
+.btn-primary {
+  @apply rounded-md border-2 border-green-600 bg-green-50 px-2 py-1 text-green-900 hover:bg-green-600 hover:text-white;
+}
+
+@utility table-list {
+  width: 100%;
+  table-layout: fixed;
+  display: table;
+  overflow: hidden;
+
+  &.table-striped {
+    .trow:nth-child(even) {
+      background-color: #eee;
+    }
+    .trow:nth-child(odd) {
+      background-color: #ddd;
+    }
+  }
+
+  &.table-border {
+    border-collapse: collapse;
+    .trow .cell {
+    }
+    .theader .cell {
+      border: 1px solid white;
+    }
+  }
+
+  &.table-hover-color .trow:hover * {
+    @apply cursor-pointer bg-gray-50;
+  }
+  :where(&.table-sm .trow .cell) {
+    padding: 8px;
+  }
+  :where(.trow .cell) {
+    padding: 18px;
+  }
+  .trow,
+  .theader {
+    position: relative;
+    display: table-row;
+    list-style: none;
+  }
+
+  .theader {
+    .cell {
+    }
+    .cell:first-child {
+      padding-left: 16px;
+    }
+  }
+  .cell {
+    font-size: 1.1rem;
+    position: relative;
+    display: table-cell;
+    border-bottom: 1px solid #aaa;
+    vertical-align: middle;
+    padding: 20px;
+  }
+}
+
+@utility article {
+  font-size: var(--text-xl);
+  line-height: var(--tw-leading, var(--text-xl--line-height));
+  --tw-leading: calc(var(--spacing) * 10);
+  line-height: calc(var(--spacing) * 10);
+  a {
+    color: var(--color-primary);
+    text-decoration-line: underline;
+    &:hover {
+      background-color: var(--color-green-600);
+      color: white;
+    }
+  }
+}
+.md-article {
+  @apply article;
+  h2 {
+    padding-block: calc(var(--spacing) * 2);
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+    font-weight: bold;
+  }
+  h3 {
+    padding-block: calc(var(--spacing));
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+    font-weight: bold;
+  }
+  ul li {
+    list-style-position: inside;
+    list-style-type: disc;
+    padding-left: 1rem;
+  }
+
+  ol li {
+    list-style-position: inside;
+    list-style-type: decimal;
+    padding-left: 1rem;
+  }
+
+  table {
+    display: table;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  th {
+    border: 1px solid black;
+    background-color: var(--color-green-800);
+    color: white;
+  }
+
+  td {
+    border: 1px solid black;
+    padding-left: 0.5rem;
+  }
+
+  blockquote {
+    padding-left: 24px;
+    border-left: solid 4px var(--color-primary);
+  }
+  p code {
+    background-color: var(--color-green-200);
+    color: var(--color-green-800);
+    padding-inline: var(--spacing);
+  }
+  /* codeblock */
+  pre {
+    background-color: var(--color-gray-200);
+      padding-left: calc(var(--spacing) * 2);
+  }
+}
+
+.tab-1 {
+  @apply tab text-lg whitespace-nowrap text-gray-600;
+  border-bottom: 3px solid var(--color-gray-300);
+
+  &.tab-active {
+    color: var(--color-primary);
+    border-bottom: 3px solid var(--color-primary);
+  }
+}
+.title-1 {
+  @apply border-primary mb-4 border-l-8 p-2 text-2xl font-bold;
+}
+.title-2 {
+  @apply mb-6 text-center text-2xl font-bold;
+}
+.title-3 {
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  border-style: solid;
+  border-bottom-width: 2px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.form-row {
+  @apply flex items-center space-x-2;
+}
+
+.tab:is(.tab-active):not(.tab-disabled):not([disabled]),
+.tab:is(input:checked) {
+  background-color: var(--color-green-200);
+  font-weight: bold;
+}
+
+.btn-outline.btn-active {
+  @apply border-green-800 bg-green-800 text-white;
+}
+
+/* override */
+.tab {
+  &:not(:checked, :hover, .tab-active, [aria-selected="true"]) {
+    color: var(--color-green-900);
+  }
+}
+
+.input:focus,
+.input:focus-within {
+  box-shadow: none;
+  outline: none;
+  border: solid 2px green;
+}

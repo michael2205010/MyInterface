@@ -1,0 +1,22 @@
+@media (max-width: 768px) {
+  .table-list.table-sm .trow .cell {
+    border-top: none;
+    padding: 3px;
+  }
+  .table-list .cell {
+    width: auto;
+  }
+  .table-list.table-hover-color .trow:hover * {
+    background-color: inherit;
+    color: inherit;
+  }
+  .table-list.table-striped .trow:nth-child(odd) {
+    background-color: #fff;
+  }
+  .table-list.table-striped .trow:nth-child(even) {
+    background-color: #fff;
+  }
+  .title-1 {
+    text-align: center;
+  }
+}
