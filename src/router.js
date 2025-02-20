@@ -6,7 +6,7 @@ let pages = {
     "/info": () => import("./views/faq/info.vue"),
     "/registration": () => import("./views/registration/index.vue"), //會員註冊
     "/regular-customer-discount": () =>
-      import("./views/regular-customer-discount/index.vue"), //常客優惠方案
+      import("./views/regular-customer-discount/index.vue"), //會員優惠方案
     "/login": () => import("./views/login/index.vue"), //登入
   },
 };

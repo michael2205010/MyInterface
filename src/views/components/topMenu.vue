@@ -1,9 +1,5 @@
 <template>
   <div class="flex items-end relative">
-    <!-- <div class="w-16 px-1 py-1 cursor-pointer flex items-center m-1 rounded-full btn-primary" v-if="!props.isLogin">
-      <i class="mdi i-mdi-user text-xl"></i>
-      <router-link to="/login" class="text-sm">登入</router-link>
-    </div> -->
     <logout-timer :is-login="props.isLogin"></logout-timer>
     <div class="drawer drawer-end basis-4">
       <input id="my-drawer" type="checkbox" class="drawer-toggle" v-model="isOpen"  aria-hidden="true"/>
@@ -31,13 +27,13 @@
           <nav>
             <template v-if="props.isLogin">
               <!-- backManagement -->
-              <div class="divider divider-primary mt-2 mb-1">常客中心</div>
+              <div class="divider divider-primary mt-2 mb-1">會員中心</div>
               <ul>
                 <li>
-                  <router-link @click="isOpen=false" to="/backManagement/rideHistory"><i class="mdi i-mdi-google-analytics text-xl"></i>回饋統計</router-link>
+                  <router-link @click="isOpen=false" to="/backManagement/rideHistory"><i class="mdi i-mdi-google-analytics text-xl"></i>資料統計</router-link>
                 </li>
                 <li>
-                  <router-link @click="isOpen=false" to="/backManagement/myCard"><i class="mdi i-mdi-credit-card-outline text-xl"></i>我的票卡</router-link>
+                  <router-link @click="isOpen=false" to="/backManagement/myCard"><i class="mdi i-mdi-credit-card-outline text-xl"></i>我的卡片</router-link>
                 </li>
                 <li>
                   <router-link @click="isOpen=false" to="/backManagement/userEdit"><i class="mdi i-mdi-pen text-xl"></i>基本資料修改</router-link>
@@ -48,15 +44,15 @@
             <ul>
               <li>
                 <router-link @click="isOpen=false" to="/regular-customer-discount">
-                  <i class="mdi i-mdi-currency-usd text-xl"></i>常客優惠方案</router-link>
+                  <i class="mdi i-mdi-currency-usd text-xl"></i>活動方案</router-link>
               </li>
               <li>
                 <router-link @click="isOpen=false" to="/faq">
-                  <i class="mdi i-mdi-help-box-outline text-xl"></i>回饋說明</router-link>
+                  <i class="mdi i-mdi-help-box-outline text-xl"></i>常見問題</router-link>
               </li>
               <li>
                 <router-link @click="isOpen=false" to="/backManagement/rideHistory">
-                  <i class="mdi i-mdi-google-analytics text-xl"></i>排碳分析</router-link>
+                  <i class="mdi i-mdi-google-analytics text-xl"></i>統計分析</router-link>
               </li>
               <div v-if="props.isLogin" class="divider divider-primary mt-2 mb-1"></div>
               <li v-if="props.isLogin">

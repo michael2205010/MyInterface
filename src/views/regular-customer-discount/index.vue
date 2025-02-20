@@ -1,5 +1,5 @@
 <template>
-  <breadcrumbs :breadcrumbs="['常客優惠方案']" />
+  <breadcrumbs :breadcrumbs="['會員優惠方案']" />
   <section class="flex flex-col justify-center overflow-x-auto md:p-8">
     <div class="form-control w-full" role="search">
       <div class="input input-bordered flex items-center gap-2 w-full">
