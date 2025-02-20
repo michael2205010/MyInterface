@@ -7,7 +7,7 @@
     "dev": "vite",
     "server": "bunx --bun vite",
     "mock": "bun vite --mode mock",
-    "build": "rmdir /s /q docs && vite build && move dist docs",
+    "build": "(if exist docs rmdir /s /q docs) && vite build && move dist docs",
     "preview": "bunx --bun vite preview"
   },
   "dependencies": {
