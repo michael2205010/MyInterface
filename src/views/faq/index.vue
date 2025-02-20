@@ -1,5 +1,5 @@
 <template>
-  <breadcrumbs :breadcrumbs="['回饋說明']" />
+  <breadcrumbs :breadcrumbs="['常見問題']" />
   <section class="flex flex-col justify-center overflow-x-auto md:p-8">
     <div class="form-control mb-8 w-full" role="search">
       <label class="input flex w-full items-center gap-2">
