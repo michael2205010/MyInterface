@@ -69,7 +69,7 @@ export default defineConfig({
     fs: {
       strict: false, // 防止 Bun 可能的檔案系統權限問題
     },
-    publicPath: process.env.NODE_ENV === "production" ? "/tpass/" : "/",
+    publicPath: "/MyInterface/",
     proxy: {
       "/webapi": {
         target: "https://localhost:44330",
