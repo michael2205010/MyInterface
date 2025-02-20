@@ -56,10 +56,7 @@ export default defineConfig({
       punycode: "punycode/",
     },
   },
-  base: process.env.NODE_ENV === "production" ? "/tpass/" : "/",
-  define: {
-    "process.env": {},
-  },
+  base: "/MyInterface/",
   build: {
     target: 'esnext', // 讓 Vite 輸出更快的現代 JavaScript
     minify: 'terser', // 使用 Terser 進行更高效的壓縮
