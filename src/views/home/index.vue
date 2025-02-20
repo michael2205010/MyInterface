@@ -40,6 +40,8 @@ function addAction(action) {
 }
 </script>
 
-
 <style scoped>
+section {
+  overflow: hidden;
+}
 </style>

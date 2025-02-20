@@ -5,7 +5,7 @@
     </div>
     <ul class="item-center flex flex-col justify-center gap-x-12 gap-y-6 py-4 mx-auto w-5/6 md:flex-row" role="list">
       <li v-for="action in actionOptions">
-        <button class="btn btn-lg bg-primary text-primary-content px-4 py-2 rounded-md whitespace-nowrap" :aria-label="action.name" @click="todo(action.describe)">
+        <button class="btn btn-lg px-2 bg-primary text-primary-content whitespace-nowrap" :aria-label="action.name" @click="todo(action.describe)">
           {{ action.name }}
         </button>
       </li>
