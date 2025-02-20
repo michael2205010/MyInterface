@@ -7,7 +7,7 @@
     "dev": "vite",
     "server": "bunx --bun vite",
     "mock": "bun vite --mode mock",
-    "build": "bunx --bun vite build",
+    "build": "vite build",
     "preview": "bunx --bun vite preview"
   },
   "dependencies": {

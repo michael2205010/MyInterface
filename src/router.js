@@ -4,7 +4,6 @@ let pages = {
   public: {
     "/faq": () => import("./views/faq/index.vue"),
     "/info": () => import("./views/faq/info.vue"),
-    "/name-registration": () => import("./views/name-registration/index.vue"), //記名登記?
     "/registration": () => import("./views/registration/index.vue"), //會員註冊
     "/regular-customer-discount": () =>
       import("./views/regular-customer-discount/index.vue"), //常客優惠方案
