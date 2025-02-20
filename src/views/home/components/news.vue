@@ -1,62 +1,34 @@
 <template>
-  <section class="flex flex-col shadow-lg mt-8" aria-label="最新消息">
-    <div class="tabs tabs-box p-0 border border-primary" role="tablist">
-      <div class="tab md:text-lg py-4 " role="tab" :aria-selected="tabName === '最新消息'" :class="{ ' tab-active': tabName === '最新消息' }" @click="activeTab('最新消息')">
-        最新消息
+  <div class="flex justify-center items-center">
+    <section class="flex flex-col justify-center shadow-lg mt-5 w-5/6" aria-label="正在發生的事">
+      <div class="tabs tabs-box p-0 border border-primary" role="tablist">
+        <div class="tab md:text-lg py-4 " role="tab">
+          正在發生的事
+        </div>
       </div>
-      <div class="tab md:text-lg py-4" role="tab" :aria-selected="tabName === '公告事項'" :class="{ ' tab-active': tabName === '公告事項' }" @click="activeTab('公告事項')">
-        公告事項
+      <div class="mt-1 p-4 bg-white rounded-none border border-primary shadow-sm">
+        <ul class="table-list mb-4 table-hover-color" role="list">
+          <li class="theader">
+            <time class="cell date">日期</time>
+            <div class="cell title">描述</div>
+          </li>
+          <li v-for="(item, index) in props.news" class="trow hover:border-2 hover:border-primary" @click="goToNews(item.id)" :key="index" role="listitem">
+            <div class="cell date">{{item.createTime.split("T")[0] + " " + item.createTime.split("T")[1]}}</div>
+            <div class="cell title">{{ item.content }}</div>
+          </li>
+        </ul>
       </div>
-      <div class="tab md:text-lg py-4" role="tab" :aria-selected="tabName === '其他'" :class="{ ' tab-active': tabName === '其他' }" @click="activeTab('其他')">
-        其他
-      </div>
-    </div>
-
-    <div class="mt-1 p-4 bg-white rounded-none border border-primary shadow-sm">
-      <ul class="table-list mb-4 table-hover-color" role="list">
-        <li class="theader">
-          <time class="cell date">日期</time>
-          <div class="cell title">標題</div>
-        </li>
-        <li v-for="(item, index) in filteredList" class="trow hover:border-2 hover:border-primary" @click="goToNews(item.id)" :key="index" role="listitem">
-          <div class="cell date">{{item.createTime.split("T")[0]}}</div>
-          <div class="cell title" @click="goToNews(item.id)">{{ item.title }}</div>
-        </li>
-      </ul>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
   
 <script setup>
-import { news } from "@/requests/requests.js";
-const router = useRouter();
-
-const response = ref([]);
-
-const tabName = ref("最新消息");
-onMounted(async () => {
-  const _response = await news.getList();
-  response.value = _response.data;
+const props = defineProps({
+  news: {
+    type: Array,
+    required: true,
+  },
 });
-
-function activeTab(name) {
-  tabName.value = name;
-};
-const filteredList = computed(() => {
-  if (response.value) {
-    return response.value.filter(item => item.category === tabName.value);
-  } else {
-    return [];
-  }
-});
-
-
-function goToNews(id) {
-  router.push({
-    path: "/News/" + id
-  });
-}
-
 </script>
 
 <style scoped>

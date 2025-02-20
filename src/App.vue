@@ -1,5 +1,5 @@
 <template>
-  <header class="px-2 border-b-4 border-primary mb-4">
+  <header class="px-2 border-b-2 border-primary bg-primary">
     <div class="flex justify-between items-center w-full mx-auto">
       <router-link to="/" title="回到首頁" class="flex items-center">
         <span class="bg-logo inline-block"></span>
