@@ -2,10 +2,9 @@
   <header class="px-2 border-b-4 border-primary mb-4">
     <div class="flex justify-between items-center w-full mx-auto">
       <router-link to="/" title="回到首頁" class="flex items-center">
-        <span class="bg-logo md:inline-block hidden"></span>
+        <span class="bg-logo inline-block"></span>
         <h1 class="font-bold text-xl whitespace-nowrap">小海報資訊系統</h1>
       </router-link>
-      <top-menu :is-login="isLogin"></top-menu>
     </div>
   </header>
   <main class="container mx-auto px-2 md:px-0">

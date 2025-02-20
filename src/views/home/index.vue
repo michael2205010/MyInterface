@@ -6,7 +6,7 @@
   </section>
   <card-company />
   <News />
-  <alert-modal :isVisible="showModal" :content="alertModalObj.content" :goToName="'前往常客中心'" @update:visible="showModal = $event" @goTo="goRegularCustomerManagement" />
+  <alert-modal :isVisible="showModal" :content="alertModalObj.content" :goToName="'確認'" @update:visible="showModal = $event" @goTo="goto" />
 </template>
 
 <script setup>
@@ -21,14 +21,14 @@ const alertModalObj = reactive({
 const isLogin = ref(false);
 
 onMounted(() => {
-  alertModalObj.content = "會員您好! 歡迎使用本系統累積公路常客優惠回饋，欲歸戶票卡，請前往【常客中心】登載資料。\n如1/14~2/21期間您已在公路局網站成功歸戶，可於註冊次日，前往常客中心查詢歸戶結果。";
+  alertModalObj.content = "歡迎光臨";
   if (isLogin.value) {
     showModal.value = true;
   }
 });
 
-function goRegularCustomerManagement() {
-  router.push("/backManagement/rideHistory");
+function goto() {
+  router.push("/");
 }
 </script>
 
