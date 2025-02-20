@@ -7,8 +7,8 @@
       <div class="tab md:text-lg py-4" role="tab" :aria-selected="tabName === '公告事項'" :class="{ ' tab-active': tabName === '公告事項' }" @click="activeTab('公告事項')">
         公告事項
       </div>
-      <div class="tab md:text-lg py-4" role="tab" :aria-selected="tabName === '優惠回饋'" :class="{ ' tab-active': tabName === '優惠回饋' }" @click="activeTab('優惠回饋')">
-        優惠回饋
+      <div class="tab md:text-lg py-4" role="tab" :aria-selected="tabName === '其他'" :class="{ ' tab-active': tabName === '其他' }" @click="activeTab('其他')">
+        其他
       </div>
     </div>
 

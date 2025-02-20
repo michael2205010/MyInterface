@@ -1,20 +1,15 @@
 <template>
-  <div class="links-top mx-auto md:w-5/6">
-    <img src="/image/links-top.png" alt="divider" class="mr-6 md:max-h-12 aspect-[7/1] " />
-  </div>
+  <hr class="mt-3 bg-primary">
   <nav class="flex flex-col" aria-label="卡片記名">
     <ul class="item-center flex flex-col justify-center gap-x-12 gap-y-6 py-4 mx-auto w-5/6 md:flex-row" role="list">
       <li>
-        <a href="https://promohub.easycard.com.tw/promohub/applyfbs.action" title="前往悠遊卡記名" aria-label="前往悠遊卡記名" target="_blank">
-          <img src="/image/cardtype/link-easycard.webp" rel="noopener" alt="悠遊卡" class="w-full aspect-[3/.]" /></a>
+        <button class="btn btn-lg bg-primary text-primary-content px-4 py-2 rounded-md" aria-label="待辦事項">待辦事項</button>
       </li>
       <li>
-        <a href="https://www.i-pass.com.tw/ThbACP" title="前往一卡通記名" aria-label="前往一卡通記名" target="_blank">
-          <img src="/image/cardtype/link-ipass.webp" rel="noopener" alt="一卡通" class="w-full aspect-[3/.]" /></a>
+        <button class="btn btn-lg bg-primary text-primary-content px-4 py-2 rounded-md" aria-label="已完成事項">已完成事項</button>
       </li>
       <li>
-        <a href="https://www.icash.com.tw/Home/NewsDetail/?ID=12226" title="前往iCash記名" aria-label="前往iCash記名" target="_blank">
-          <img src="/image/cardtype/link-icash.webp" rel="noopener" alt="iCash" class="w-full aspect-[3/.]" /></a>
+        <button class="btn btn-lg bg-primary text-primary-content px-4 py-2 rounded-md" aria-label="處理中">處理中</button>
       </li>
     </ul>
   </nav>
@@ -24,18 +19,9 @@
 
 <style scoped>
 @reference "@/assets/css/main.css";
-.links-top {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  position: relative;
-  padding: 0 15px;
-  margin-top: 16px;
-
-  &::after {
-    content: "";
-    @apply box-border block h-[3px] w-[calc(100%-320px)] bg-green-600;
-  }
+hr {
+  border: 0;
+  height: 5px;
 }
 
 @media (max-width: 1200px) {

@@ -1,9 +1,9 @@
 <template>
-  <header class="px-2 border-b-4 border-green-600 mb-4">
+  <header class="px-2 border-b-4 border-primary mb-4">
     <div class="flex justify-between items-center w-full mx-auto">
       <router-link to="/" title="回到首頁" class="flex items-center">
         <span class="bg-logo md:inline-block hidden"></span>
-        <h1 class="font-bold text-xl whitespace-nowrap">****資訊系統</h1>
+        <h1 class="font-bold text-xl whitespace-nowrap">小海報資訊系統</h1>
       </router-link>
       <top-menu :is-login="isLogin"></top-menu>
     </div>
@@ -11,7 +11,7 @@
   <main class="container mx-auto px-2 md:px-0">
     <router-view />
   </main>
-  <footer class="bg-green-900 text-white p-4 mt-8">
+  <footer class="bg-primary text-primary-content p-4 mt-8">
     <div class="container-layout border-bottom border-white px-4 pt-5 pb-3 leading-8 d-block flex justify-content-between align-items-end">
       <div>
         <div>服務電話：(**)****-****</div>
@@ -59,16 +59,16 @@ provide('logout', logout);
 
 <style scoped>
 header {
-  height: 60px;
+  height: 80px;
   padding: 8px;
 }
 main {
   flex: 1;
 }
 .bg-logo {
-  background: url("/image/logo.webp") no-repeat;
-  background-size: 4rem 1.4rem; /* 相對單位 */
+  background: url("/image/logo.png") no-repeat;
+  background-size: 4rem 4rem; /* 相對單位 */
   width: 4rem;
-  height: 1.4rem;
+  height: 4rem;
 }
 </style>
